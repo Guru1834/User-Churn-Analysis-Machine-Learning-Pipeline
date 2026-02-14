@@ -1,91 +1,77 @@
-# 📉 User Churn Analysis & Machine Learning Pipeline
+# 📊 Customer Churn Prediction using XGBoost
+
+An end-to-end Machine Learning project focused on predicting customer churn using structured behavioral and demographic data. The project includes data preprocessing, feature engineering, imbalance handling, model training, and performance evaluation using advanced metrics.
+
+## 🚀 Project Overview
+
+Customer churn prediction is a critical problem in subscription-based and telecom businesses. This project builds a supervised classification model to identify customers at risk of leaving, enabling proactive retention strategies.
+
+The model was trained using real-world churn data and optimized using tree-based ensemble methods.
 
 ---
 
-## Overview
+## 🧠 Methodology
 
-This project presents an **end-to-end machine learning pipeline for user churn analysis** using behavioral event data. The objective is to identify users at risk of churn by analyzing interaction patterns such as event type, device usage, geographic location, and time-based behavior.
+### 1️⃣ Data Preprocessing
+- Handled missing values
+- Encoded categorical features
+- Extracted time-based features (where applicable)
+- Removed leakage-prone variables
+- Stratified train-test split
 
-The pipeline covers **data preprocessing, exploratory data analysis (EDA), feature engineering, model training, evaluation, and interpretation**, with a strong emphasis on **realistic metrics and explainability rather than inflated accuracy**.
+### 2️⃣ Feature Engineering
+- Behavioral features (frequency, engagement, recency)
+- Purchase-based indicators
+- Customer activity metrics
+- Aggregated user-level statistics
 
----
-
-## Features
-
-- Load and preprocess user activity data  
-- Handle categorical features using one-hot encoding  
-- Analyze behavioral patterns through exploratory data analysis  
-- Engineer time-based and device-based features  
-- Define churn carefully to avoid data leakage  
-- Split data into training and testing sets using stratified sampling  
-- Train and evaluate machine learning models for churn prediction  
-
----
-
-## Machine Learning Approach
-
-- **Model Used**
-  - RandomForestClassifier (final model)
-  - Gradient Boosting tested for comparison
-
-- **Why Random Forest**
-  - Handles non-linear relationships
-  - Performs well on tabular data
-  - Provides feature importance for interpretability
-
-- **Class Imbalance Handling**
-  - Class weighting to prevent majority-class dominance
-  - Evaluation focused on recall and F1-score rather than accuracy alone
+### 3️⃣ Model Development
+- Algorithm: **XGBoost Classifier**
+- Class imbalance handled using `scale_pos_weight`
+- Hyperparameter tuning (learning rate, depth, estimators)
+- Stratified evaluation
 
 ---
 
-## Evaluation Metrics
+## 📈 Model Performance
 
-- Accuracy (reported but not relied upon)
-- Precision, Recall, and F1-score
-- Confusion Matrix for detailed error analysis
-- ROC–AUC for ranking churn risk
+- Evaluated using:
+  - Accuracy
+  - Precision & Recall
+  - F1-Score
+  - ROC-AUC
+  - Confusion Matrix
 
----
-
-## Visualizations
-
-- Event type distribution  
-- Device and country usage patterns  
-- Time-based activity trends  
-- Confusion matrix  
-- Feature importance plot  
+The final model demonstrates strong predictive capability in identifying high-risk customers.
 
 ---
 
-## Key Insights
+## 🛠 Tech Stack
 
-- Logout behavior is a strong indicator of churn  
-- Device type significantly influences churn risk  
-- Late-hour and weekend activity correlates with higher churn probability  
-- Accuracy alone can be misleading in churn prediction problems  
-
----
-
-## Limitations
-
-- Analysis is based on event-level data rather than long-term user history  
-- Churn definition is behavior-based and may vary in real business settings  
-- Performance is intentionally kept realistic to avoid overfitting  
+- Python
+- Pandas
+- Scikit-learn
+- XGBoost
+- NumPy
+- Matplotlib / Seaborn
 
 ---
 
-## Tech Stack
+## 🎯 Key Learnings
 
-- Python  
-- Pandas, NumPy  
-- Matplotlib  
-- Scikit-learn  
-
----
-
-## Conclusion
-
-This project demonstrates a **real-world churn prediction workflow**, focusing on correct problem formulation, proper evaluation, and model interpretability. Rather than maximizing accuracy, the emphasis is placed on **identifying churn-prone users effectively**, which aligns better with business decision-making.
+- Avoiding target leakage in churn modeling
+- Handling class imbalance in real-world datasets
+- Importance of behavioral feature engineering
+- Interpreting confusion matrices beyond raw accuracy
+- Evaluating models using ROC-AUC instead of accuracy alone
 
 ---
+
+## 📌 Business Impact
+
+This model can help organizations:
+
+- Identify at-risk customers
+- Reduce churn rate
+- Improve retention strategies
+- Optimize marketing campaigns
